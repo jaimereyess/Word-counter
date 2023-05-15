@@ -18,19 +18,24 @@ const Form = () => {
   return (
     <div className="container-fluid">
       <div className="row">
-        <div className="col-sm-12">
+        <div className="col-sm-8">
           <form className="form-floating" method="post">
             <textarea
-              className=" textarea-box"
+              className="form-control textarea-box"
               name="text"
               placeholder="Insert text..."
               onChange={handleInputChange}
             ></textarea>
-            <br />
           </form>
         </div>
+        <div className="col-sm-4">
+          <Counter
+            words={words}
+            characters={characters}
+            className="text-center"
+          />
+        </div>
       </div>
-      <Counter words={words} characters={characters} className="text-center" />
     </div>
   )
 }
