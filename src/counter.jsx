@@ -1,11 +1,10 @@
-const Counter = ({ arrLength, formLength }) => {
-    return (
-      <span className="values-output">
-        <p>Number of words: {arrLength}</p>
-        <p>Number of characters: {formLength}</p>
-      </span>
-    )
-  }
-  
-  export default Counter
-  
+const Counter = ({ words, characters }) => {
+  return (
+    <span className="values-output">
+      <p>Number of words: {words}</p>
+      <p>Number of characters: {characters}</p>
+    </span>
+  )
+}
+
+export default Counter

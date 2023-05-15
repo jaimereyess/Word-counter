@@ -2,17 +2,17 @@ import React, { useState } from "react"
 import Counter from "./counter.jsx"
 
 const Form = () => {
-  const [arrLength, setArrLength] = useState(0)
-  const [formLength, setFormLength] = useState(0)
+  const [words, setWords] = useState(0)
+  const [characters, setCharacters] = useState(0)
 
   function handleInputChange(e) {
-    const text = e.target.value
-    const arrOfText = text.split(" ")
-    const newArrLength = arrOfText.length
-    const newFormLength = text.length
+    const text = e.target.value.trim()
+    const wordCounter = text ? text.split(/\s+/) : []
+    const newWordCounter = wordCounter.length
+    const charactersCounter = text.length
 
-    setArrLength(newArrLength)
-    setFormLength(newFormLength)
+    setWords(newWordCounter)
+    setCharacters(charactersCounter)
   }
 
   return (
@@ -30,7 +30,7 @@ const Form = () => {
           </form>
         </div>
       </div>
-      <Counter arrLength={arrLength} formLength={formLength} />
+      <Counter words={words} characters={characters} />
     </div>
   )
 }
