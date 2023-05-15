@@ -7,7 +7,7 @@ const Form = () => {
 
   function handleInputChange(e) {
     const text = e.target.value.trim()
-    const wordCounter = text ? text.split(/\s+/) : []
+    const wordCounter = text ? text.split(/\W+/g) : []
     const newWordCounter = wordCounter.length
     const charactersCounter = text.length
 
@@ -16,21 +16,21 @@ const Form = () => {
   }
 
   return (
-    <div className="container-fluid bg-warning">
+    <div className="container-fluid">
       <div className="row">
-        <div className="col-12">
+        <div className="col-sm-12">
           <form className="form-floating" method="post">
             <textarea
-              className="textarea-box"
+              className=" textarea-box"
               name="text"
               placeholder="Insert text..."
               onChange={handleInputChange}
-            />
+            ></textarea>
             <br />
           </form>
         </div>
       </div>
-      <Counter words={words} characters={characters} />
+      <Counter words={words} characters={characters} className="text-center" />
     </div>
   )
 }

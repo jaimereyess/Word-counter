@@ -1,4 +1,4 @@
-const Counter = ({ words, characters }) => {
+const Counter = ({ words, characters, specialChars }) => {
   return (
     <span className="values-output">
       <p>Number of words: {words}</p>
