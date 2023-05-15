@@ -19,7 +19,7 @@ const Form = () => {
     <div className="container-fluid">
       <div className="row">
         <div className="col-sm-8">
-          <form className="form-floating" method="post">
+          <form method="post">
             <textarea
               className="form-control textarea-box"
               name="text"

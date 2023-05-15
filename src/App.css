@@ -2,14 +2,7 @@
   color: white;
 }
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
 .textarea-box {
   resize: none;
+  height: 300px;
 }

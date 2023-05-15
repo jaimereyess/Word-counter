@@ -3,10 +3,10 @@ import Form from "./form.jsx"
 
 function App() {
   return (
-    <>
-      <h1>Word Counter</h1>
+    <div className="m-4">
+      <h1 className="text-center">Word Counter</h1>
       <Form />
-    </>
+    </div>
   )
 }
 
