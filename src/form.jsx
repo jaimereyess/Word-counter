@@ -1,18 +1,22 @@
-import { useState } from "react"
-import Counter from "./counter.jsx"
+import React, { useState } from "react"
+import Counter from "./Counter.jsx"
+import LetterFrequency from "./letters.jsx"
 
 const Form = () => {
   const [words, setWords] = useState(0)
   const [characters, setCharacters] = useState(0)
+  const [lastLetter, setActualLetter] = useState("")
+  const [text, setText] = useState("")
 
   function handleInputChange(e) {
     const text = e.target.value.trim()
     const wordCounter = text ? text.split(/\s+/g) : []
-    console.log(wordCounter)
     const newWordCounter = wordCounter.length
     const charactersCounter = text.length
-    console.log(charactersCounter)
+    const actualLetter = text.charAt(text.length - 1)
 
+    setText(text)
+    setActualLetter(actualLetter)
     setWords(newWordCounter)
     setCharacters(charactersCounter)
   }
@@ -34,9 +38,14 @@ const Form = () => {
           <Counter
             words={words}
             characters={characters}
+            lastLetter={lastLetter.toUpperCase()} 
             className="text-center"
           />
+          {LetterFrequency[lastLetter]}
         </div>
+      </div>
+      <div className="row mt-4">
+        <LetterFrequency text={text} />
       </div>
     </div>
   )
