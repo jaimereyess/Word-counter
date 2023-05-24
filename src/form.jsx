@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import { useState } from "react"
 import Counter from "./counter.jsx"
 
 const Form = () => {
@@ -7,9 +7,11 @@ const Form = () => {
 
   function handleInputChange(e) {
     const text = e.target.value.trim()
-    const wordCounter = text ? text.split(/\W+/g) : []
+    const wordCounter = text ? text.split(/\s+/g) : []
+    console.log(wordCounter)
     const newWordCounter = wordCounter.length
     const charactersCounter = text.length
+    console.log(charactersCounter)
 
     setWords(newWordCounter)
     setCharacters(charactersCounter)

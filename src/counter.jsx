@@ -1,4 +1,5 @@
-const Counter = ({ words, characters, specialChars }) => {
+// eslint-disable-next-line react/prop-types
+const Counter = ({ words, characters }) => {
   return (
     <span className="values-output">
       <p>Number of words: {words}</p>
