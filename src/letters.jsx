@@ -28,7 +28,7 @@ const LetterFrequency = ({ text }) => {
       <ul>
         {sortedLetters.map((letter) => (
           <li key={letter}>
-            {letter}: {letterCounts[letter]} ({Math.floor((letterCounts[letter] * 100 / (text.length)))}%)
+            {letter}: {letterCounts[letter]} ({Math.floor((letterCounts[letter] * 100 / (text.split("").filter(char => !/\s|\n/.test(char)).length)))}%)
           </li>
         ))}
       </ul>
