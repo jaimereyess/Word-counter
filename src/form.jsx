@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import Counter from "./counter.jsx"
 import LetterFrequency from "./letters.jsx"
+import WordsFrequency from "./assets/words.jsx"
 
 const Form = () => {
   const [words, setWords] = useState(0)
@@ -46,11 +47,18 @@ const Form = () => {
             className="text-center"
           />
           {LetterFrequency[lastLetter]}
+
         </div>
       </div>
       <div className="row mt-4">
-        <LetterFrequency text={text} />
+        <div className="col-sm-4">
+          <LetterFrequency text={text} />
+        </div>
+        <div className="col-sm-4">
+          <WordsFrequency text={text} />
+        </div>
       </div>
+
     </div>
   )
 }
