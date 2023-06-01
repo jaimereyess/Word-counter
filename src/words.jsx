@@ -1,19 +1,20 @@
 const WordsFrequency = ({ text }) => {
   const countWords = () => {
     const wordsCounts = {};
-    const words = text.split(/\s+/g);
+    const words = text.split(/([^\w\s])|\s+/g).filter(Boolean);
 
     if (words == "") {
 
     } else {
       words.forEach((word) => {
-        if (wordsCounts.hasOwnProperty(word)) {
-          wordsCounts[word]++;
-        } else {
-          wordsCounts[word] = 1;
+        if (word !== '.' && word !== ',') {
+          if (wordsCounts.hasOwnProperty(word)) {
+            wordsCounts[word]++;
+          } else {
+            wordsCounts[word] = 1;
+          }
         }
       });
-
     }
 
     return wordsCounts;
