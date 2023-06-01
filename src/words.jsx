@@ -3,7 +3,9 @@ const WordsFrequency = ({ text }) => {
     const wordsCounts = {};
     const words = text.split(/\s+/g);
 
-    if (words) {
+    if (words == "") {
+
+    } else {
       words.forEach((word) => {
         if (wordsCounts.hasOwnProperty(word)) {
           wordsCounts[word]++;
@@ -11,6 +13,7 @@ const WordsFrequency = ({ text }) => {
           wordsCounts[word] = 1;
         }
       });
+
     }
 
     return wordsCounts;
@@ -18,11 +21,15 @@ const WordsFrequency = ({ text }) => {
 
   const wordCounts = countWords();
 
+  const sortedWords = Object.keys(wordCounts).sort(
+    (a, b) => wordCounts[b] - wordCounts[a]
+  );
+
   return (
     <div>
       <h2>Words Frequency</h2>
       <ul>
-        {Object.keys(wordCounts).map((word) => (
+        {sortedWords.map((word) => (
           <li key={word}>
             {word}: {wordCounts[word]}
           </li>

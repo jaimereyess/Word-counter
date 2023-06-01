@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import Counter from "./counter.jsx"
 import LetterFrequency from "./letters.jsx"
-import WordsFrequency from "./assets/words.jsx"
+import WordsFrequency from "./words.jsx"
 
 const Form = () => {
   const [words, setWords] = useState(0)
