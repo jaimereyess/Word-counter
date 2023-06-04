@@ -22,18 +22,32 @@ const LetterFrequency = ({ text }) => {
     (a, b) => letterCounts[b] - letterCounts[a]
   );
 
+  const halfLength = Math.ceil(sortedLetters.length / 2);
+  const firstHalf = sortedLetters.slice(0, halfLength);
+  const secondHalf = sortedLetters.slice(halfLength);
+
   return (
     <div>
       <h2>Letter Frequency</h2>
-      <ul>
-        {sortedLetters.map((letter) => (
-          <li key={letter}>
-            {letter}: {letterCounts[letter]} ({Math.floor((letterCounts[letter] * 100 / (text.split("").filter(char => !/\s|\n/.test(char)).length)))}%)
-          </li>
-        ))}
-      </ul>
+      {firstHalf.map((letter, index) => (
+
+        <div className="row row-letter">
+
+          <div className="col-4">
+            <ul key={index}>
+              <li>{letter}: {letterCounts[letter]} ({Math.floor((letterCounts[letter] * 100 / (text.split("").filter(char => !/\s|\n/.test(char)).length)))}%)</li>
+            </ul>
+          </div>
+          <div className="col-4">
+            {secondHalf[index] && (
+              <li>{secondHalf[index]}: {letterCounts[secondHalf[index]]} ({Math.floor((letterCounts[secondHalf[index]] * 100 / (text.split("").filter(char => !/\s|\n/.test(char)).length)))}%)</li>
+            )}
+          </div>
+        </div>
+      ))}
     </div>
   );
 };
+
 
 export default LetterFrequency;

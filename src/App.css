@@ -6,3 +6,7 @@
   resize: none;
   height: 300px;
 }
+
+.row-letter {
+  margin-bottom: -10px;
+}

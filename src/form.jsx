@@ -57,6 +57,7 @@ const Form = () => {
         <div className="col-sm-4">
           <WordsFrequency text={text} />
         </div>
+
       </div>
 
     </div>
