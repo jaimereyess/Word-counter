@@ -3,6 +3,7 @@ import Counter from "./counter.jsx"
 import LetterFrequency from "./letters.jsx"
 import WordsFrequency from "./words.jsx"
 
+
 const Form = () => {
   const [words, setWords] = useState(0)
   const [characters, setCharacters] = useState(0)
@@ -57,9 +58,7 @@ const Form = () => {
         <div className="col-sm-4">
           <WordsFrequency text={text} />
         </div>
-
       </div>
-
     </div>
   )
 }

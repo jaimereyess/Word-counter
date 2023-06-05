@@ -30,24 +30,24 @@ const LetterFrequency = ({ text }) => {
     <div>
       <h2>Letter Frequency</h2>
       {firstHalf.map((letter, index) => (
-
-        <div className="row row-letter">
-
+        <div className="row row-letter" key={index}>
           <div className="col-4">
-            <ul key={index}>
+            <ul>
               <li>{letter}: {letterCounts[letter]} ({Math.floor((letterCounts[letter] * 100 / (text.split("").filter(char => !/\s|\n/.test(char)).length)))}%)</li>
             </ul>
           </div>
           <div className="col-4">
             {secondHalf[index] && (
-              <li>{secondHalf[index]}: {letterCounts[secondHalf[index]]} ({Math.floor((letterCounts[secondHalf[index]] * 100 / (text.split("").filter(char => !/\s|\n/.test(char)).length)))}%)</li>
+              <ul>
+                <li>{secondHalf[index]}: {letterCounts[secondHalf[index]]} ({Math.floor((letterCounts[secondHalf[index]] * 100 / (text.split("").filter(char => !/\s|\n/.test(char)).length)))}%)</li>
+              </ul>
             )}
           </div>
         </div>
       ))}
     </div>
   );
-};
+}
 
 
 export default LetterFrequency;

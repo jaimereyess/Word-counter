@@ -1,1 +1,0 @@
-export const OPENAI_API_KEY = "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"
