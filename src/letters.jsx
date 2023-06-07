@@ -33,13 +33,13 @@ const LetterFrequency = ({ text }) => {
         <div className="row row-letter" key={index}>
           <div className="col-4">
             <ul>
-              <li>{letter}: {letterCounts[letter]} ({Math.floor((letterCounts[letter] * 100 / (text.split("").filter(char => !/\s|\n/.test(char)).length)))}%)</li>
+              <li>{letter}: {letterCounts[letter]} ({Math.floor((letterCounts[letter] * 100 / (text.replace(/\s+/g, "").length)))}%)</li>
             </ul>
           </div>
           <div className="col-4">
             {secondHalf[index] && (
               <ul>
-                <li>{secondHalf[index]}: {letterCounts[secondHalf[index]]} ({Math.floor((letterCounts[secondHalf[index]] * 100 / (text.split("").filter(char => !/\s|\n/.test(char)).length)))}%)</li>
+                <li>{secondHalf[index]}: {letterCounts[secondHalf[index]]} ({Math.floor((letterCounts[secondHalf[index]] * 100 / (text.replace(/\s+/g, "").length)))}%)</li>
               </ul>
             )}
           </div>

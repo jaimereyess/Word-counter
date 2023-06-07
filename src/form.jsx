@@ -10,20 +10,24 @@ const Form = () => {
   const [charactersNoSpace, setCharactersNoSpace] = useState(0)
   const [lastLetter, setActualLetter] = useState("")
   const [text, setText] = useState("")
+  const [lineCounter, setLineCounter] = useState(0)
 
   function handleInputChange(e) {
     const text = e.target.value.trim()
     const wordCounter = text ? text.split(/\s+/g) : []
     const newWordCounter = wordCounter.length
-    const charactersCounter = text.length
-    const charactersWithoutSpaces = text.split("").filter(char => !/\s|\n/.test(char)).length;
+    const charactersCounter = text.replace(/[\n\r]/g, "").length
+    const charactersWithoutSpaces = text.replace(/\s+/g, "").length;
     const actualLetter = text.charAt(text.length - 1)
+    const lineCounter = text.split(/\r\n|\r|\n/).length
+
 
     setText(text)
     setActualLetter(actualLetter)
     setWords(newWordCounter)
     setCharacters(charactersCounter)
     setCharactersNoSpace(charactersWithoutSpaces)
+    setLineCounter(lineCounter)
   }
 
   return (
@@ -45,6 +49,7 @@ const Form = () => {
             characters={characters}
             charactersWithoutSpaces={charactersNoSpace}
             lastLetter={lastLetter.toUpperCase()}
+            lineCounter={lineCounter}
             className="text-center"
           />
           {LetterFrequency[lastLetter]}
