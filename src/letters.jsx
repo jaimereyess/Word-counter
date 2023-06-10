@@ -35,11 +35,13 @@ const LetterFrequency = ({ text }) => {
 
 
             <table className="table-fixed">
+              <tbody>
               <tr>
                 <td> 
                   {letter}: {letterCounts[letter]} ({Math.floor((letterCounts[letter] * 100 / (text.replace(/\s+/g, "").length)))}%)
                 </td>
               </tr>
+              </tbody>
             </table>
 
             {secondHalf[index] && (

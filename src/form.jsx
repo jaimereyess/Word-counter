@@ -38,8 +38,8 @@ const Form = () => {
 
   return (
     <main>
-      <div className="flex gap-10">
-        <div className="basis-4/5 ">
+      <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4 lg:gap-6">
+        <div className="col-span-3">
           <form method="post">
             <textarea
               className="form-control h-72 resize-none"
@@ -52,7 +52,7 @@ const Form = () => {
           </form>
         </div>
 
-        <div className="basis-1/5 md:flex-cols basic-1/1">
+        <div>
           <Counter
             words={words}
             characters={characters}
@@ -64,7 +64,7 @@ const Form = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-4 gap-4 mt-10">
+      <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4 lg:gap-6 mt-10">
         <div>
           <LetterFrequency text={text} />
         </div>
