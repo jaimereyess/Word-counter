@@ -1,11 +1,11 @@
-import "./App.css"
 import Form from "./form.jsx"
+import "./index.css"
 
 
 function App() {
   return (
-    <div className="m-4">
-      <h1 className="text-center">Word Counter</h1>
+    <div className="m-4 text-white">
+      <h1 className="text-4xl font-bold underline">Word Counter</h1>
       <Form />
     </div>
   )

@@ -37,12 +37,12 @@ const Form = () => {
   }
 
   return (
-    <div className="container-fluid">
-      <div className="row">
-        <div className="col-sm-8">
+    <main>
+      <div className="flex gap-10">
+        <div className="basis-4/5 ">
           <form method="post">
             <textarea
-              className="form-control textarea-box"
+              className="form-control h-72 resize-none"
               name="text"
               placeholder="Insert text..."
               onChange={handleInputChange}
@@ -51,27 +51,28 @@ const Form = () => {
             </textarea>
           </form>
         </div>
-        <div className="col-sm-4">
+
+        <div className="basis-1/5 md:flex-cols basic-1/1">
           <Counter
             words={words}
             characters={characters}
             charactersWithoutSpaces={charactersNoSpace}
             lastLetter={lastLetter.toUpperCase()}
             lineCounter={lineCounter}
-            className="text-center"
           />
           {LetterFrequency[lastLetter]}
         </div>
       </div>
-      <div className="row mt-4">
-        <div className="col-sm-4">
+
+      <div className="grid grid-cols-4 gap-4 mt-10">
+        <div>
           <LetterFrequency text={text} />
         </div>
-        <div className="col-sm-4">
+        <div>
           <WordsFrequency text={text} />
         </div>
       </div>
-    </div>
+    </main>
   )
 }
 
