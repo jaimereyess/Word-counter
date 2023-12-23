@@ -29,26 +29,25 @@ const LetterFrequency = ({ text }) => {
   return (
     <section>
 
-      <h2 className="ml-8 underline">Letter Frequency</h2>
+      <h2>Letter Frequency</h2>
       {firstHalf.map((letter, index) => (
-          <div className="grid grid-cols-2 h-8" key={index}>
-
-
-            <table className="table-fixed">
-              <tbody>
+        <div className="grid grid-cols-2" key={index}>
+          <table className="table-fixed">
+            <tbody>
               <tr>
-                <td> 
+                <td>
                   {letter}: {letterCounts[letter]} ({Math.floor((letterCounts[letter] * 100 / (text.replace(/\s+/g, "").length)))}%)
                 </td>
               </tr>
-              </tbody>
-            </table>
-
-            {secondHalf[index] && (
-              <ul>
-                <li>{secondHalf[index]}: {letterCounts[secondHalf[index]]} ({Math.floor((letterCounts[secondHalf[index]] * 100 / (text.replace(/\s+/g, "").length)))}%)</li>
-              </ul>
-            )}
+            </tbody>
+          </table>
+          {secondHalf[index] && (
+            <ul>
+              <li>{secondHalf[index]}: {letterCounts[secondHalf[index]]}
+                ({Math.floor((letterCounts[secondHalf[index]] * 100 / (text.replace(/\s+/g, "").length)))}%)
+              </li>
+            </ul>
+          )}
         </div>
       ))}
     </section>

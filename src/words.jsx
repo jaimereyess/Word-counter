@@ -28,7 +28,7 @@ const WordsFrequency = ({ text }) => {
 
   return (
     <div>
-      <h2 className="ml-8 underline">Words Frequency</h2>
+      <h2 className="ml-8">Words Frequency</h2>
       <ul>
         {sortedWords.map((word) => (
           <li key={word}>

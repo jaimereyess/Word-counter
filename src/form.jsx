@@ -21,12 +21,12 @@ const Form = () => {
 
   const handleInputChange = (e) => {
     const text = e.target.value
-    const wordCounter = text ? text.split(/\s+/g) : []
+    const wordCounter = text ? text.trim().split(/\s+/g) : []
     const newWordCounter = wordCounter.length
     const charactersCounter = text.replace(/[\n\r]/g, "").length
     const charactersWithoutSpaces = text.replace(/\s+/g, "").length
     const actualLetter = text.charAt(text.length - 1)
-    const lineCounter = text.split(/\r\n|\r|\n/).length
+    const lineCounter = text ? text.split(/\r\n|\r|\n/).length : "0"
 
     setText(text)
     setActualLetter(actualLetter)
@@ -37,8 +37,8 @@ const Form = () => {
   }
 
   return (
-    <main>
-      <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4 lg:gap-6">
+    <main className="">
+      <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4 md:gap-4 lg:gap-6">
         <div className="col-span-3">
           <form method="post">
             <textarea
@@ -64,7 +64,7 @@ const Form = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4 lg:gap-6 mt-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4 lg:gap-6 mt-10">
         <div>
           <LetterFrequency text={text} />
         </div>
